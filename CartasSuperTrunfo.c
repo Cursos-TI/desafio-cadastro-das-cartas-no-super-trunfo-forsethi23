@@ -10,7 +10,10 @@ int main(){
     float Area1,Area2;                          // Área da cidade (em km²)
     float PIB1,PIB2;                            // PIB da cidade
     int PontosTuristicos1,PontosTuristicos2;    // Número de pontos turísticos
-
+    float Densidade1,Densidade2;                // Densidade populacional
+    float Percapita1,Percapita2;                // PIB per capita
+    
+    
     printf("Digite as informações da Carta1:\n");
 
     printf("Digite seu Estado:\n");
@@ -34,6 +37,14 @@ int main(){
     printf("Digite a quantidade de pontos turisticos:\n");
     scanf (" %d", &PontosTuristicos1);
    
+    Densidade1 = (float)(Populacao1 / Area1);
+    
+
+    Percapita1 = (float)(PIB1 / Populacao1);
+    
+    
+    
+    
     //COLETANDO CARTA 2
     printf("Digite as informações da Carta2: \n");
     
@@ -58,7 +69,15 @@ int main(){
     printf("Digite a quantidade de pontos turisticos:\n");
     scanf ("%d", &PontosTuristicos2);
    
-    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n", Estado1, Codigo1,Cidade1, Populacao1, Area1, PIB1,PontosTuristicos1);
+    Densidade2 = (float)(Populacao2 / Area2);
     
-    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n", Estado2, Codigo2,Cidade2, Populacao2, Area2, PIB2,PontosTuristicos2);
+
+    Percapita2 = (float)(PIB2 / Populacao2);
+    
+    
+    
+    
+    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n", Estado1, Codigo1,Cidade1, Populacao1, Area1, PIB1,PontosTuristicos1, Densidade1, Percapita1);
+    
+    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n", Estado2, Codigo2,Cidade2, Populacao2, Area2, PIB2,PontosTuristicos2, Densidade2 ,Percapita2);
 }
