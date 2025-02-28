@@ -12,6 +12,9 @@ int main(){
     int PontosTuristicos1,PontosTuristicos2;    // Número de pontos turísticos
     float Densidade1,Densidade2;                // Densidade populacional
     float Percapita1,Percapita2;                // PIB per capita
+    float SuperPoder1,SuperPoder2;              // Soma da população, area, PIB,PIB per capta e densidade populacional invertida para comparacao e numero de pontos turisticos
+    int resultado;
+    
     
     
     printf("Digite as informações da Carta1:\n");
@@ -38,10 +41,10 @@ int main(){
     scanf (" %d", &PontosTuristicos1);
    
     Densidade1 = (float)(Populacao1 / Area1);
-    
+    //printf("A densidade é: ", Densidade1);
 
     Percapita1 = (float)(PIB1 / Populacao1);
-    
+    //printf("A renda per capita é: ", Percapita1);
     
     
     
@@ -70,14 +73,26 @@ int main(){
     scanf ("%d", &PontosTuristicos2);
    
     Densidade2 = (float)(Populacao2 / Area2);
-    
+    //printf("A densidade é: ", Densidade2);
 
-    Percapita2 = (float)(PIB2 / Populacao2);
+    Percapita1 = (float)(PIB2 / Populacao2);
+    //printf("A renda per capita é: ", Percapita2);
     
     
     
-    
-    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n", Estado1, Codigo1,Cidade1, Populacao1, Area1, PIB1,PontosTuristicos1, Densidade1, Percapita1);
-    
-    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n", Estado2, Codigo2,Cidade2, Populacao2, Area2, PIB2,PontosTuristicos2, Densidade2 ,Percapita2);
+    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n",Estado1, Codigo1,Cidade1, Populacao1, Area1, PIB1,PontosTuristicos1, Densidade1, Percapita1);
+    printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n",Estado2, Codigo2,Cidade2, Populacao2, Area2, PIB2,PontosTuristicos2, Densidade2 ,Percapita2);
+
+    // Comparacao das Cartas
+    resultado = Carta1 > Carta2;
+    printf("Populacao > Populaacao: %d\n", Populacao1 > Populacao2);
+    printf("Area > Area: %.0f\n", Area1 > Area2);
+    printf("PIB > PIB: %.0f\n", PIB1 > PIB2);
+    printf("PontosTuristicos > PontosTuristicos: %d\n", PontosTuristicos1 > PontosTuristicos2);
+    printf("Densidade > Densidade: %.0f\n", Densidade1 > Densidade2);
+    printf("PIB per capita > PIB per capita: %.0f\n", Percapita1 > Percapita2);
+
+
+
+
 }
