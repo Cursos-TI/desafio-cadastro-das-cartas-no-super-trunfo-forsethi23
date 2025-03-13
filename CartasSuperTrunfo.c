@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main(){
 
@@ -13,10 +15,11 @@ int main(){
     float Densidade1,Densidade2;                // Densidade populacional
     float Percapita1,Percapita2;                // PIB per capita
     float SuperPoder1,SuperPoder2;              // Soma da população, area, PIB,PIB per capta e densidade populacional invertida para comparacao e numero de pontos turisticos
-    int resultado;
+    int resultado1 , resultado2;                // Para comparar
+    char tipoComparacao1 , tipoComparacao2;     
     
     
-    
+    // Coletando carta 1
     printf("Digite as informações da Carta1:\n");
 
     printf("Digite seu Estado:\n");
@@ -41,9 +44,7 @@ int main(){
     scanf (" %d", &PontosTuristicos1);
    
     Densidade1 = (float)(Populacao1 / Area1);
-
     Percapita1 = (float)(PIB1 / Populacao1);
-   
     SuperPoder1 = (Populacao1 + Area1 + PIB1 + PontosTuristicos1 + (1/Densidade1) + Percapita1);
     
     
@@ -72,27 +73,143 @@ int main(){
     scanf ("%d", &PontosTuristicos2);
    
     Densidade2 = (float)(Populacao2 / Area2);
-    
-
     Percapita2 = (float)(PIB2 / Populacao2);
-    
     SuperPoder2 = (Populacao2 + Area2 + PIB2 + PontosTuristicos2 + (1/Densidade2) + Percapita2 );
     
     
     printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n O Super poder é:%.2f\n",Estado1, Codigo1,Cidade1, Populacao1, Area1, PIB1,PontosTuristicos1, Densidade1, Percapita1 ,SuperPoder1);
     printf("Letra do estado:%c\n Codigo:%s\n Cidade:%s\n Numero de habitantes:%d\n Area:%.2f\n PIB:%.2f\n PontosTuristicos:%d\n A densidade é:%.2f\n A renda per capita é:%.2f\n O Super poder é:%.2f\n",Estado2, Codigo2,Cidade2, Populacao2, Area2, PIB2,PontosTuristicos2, Densidade2 ,Percapita2 ,SuperPoder2);
 
+    
+    
     // Comparacao das Cartas
-    //resultado = Carta1, Carta2;
-    printf("Populacao > Populacao: %d\n", Populacao1 > Populacao2);
-    printf("Area > Area: %d\n", Area1 > Area2);
-    printf("PIB > PIB: %d\n", PIB1 > PIB2);
-    printf("PontosTuristicos > PontosTuristicos: %d\n", PontosTuristicos1 > PontosTuristicos2);
-    printf("Densidade < Densidade: %d\n", Densidade1 < Densidade2);
-    printf("PIB per capita > PIB per capita: %d\n", Percapita1 > Percapita2);
-    printf("SuperPoder > SuperPoder: %d\n", SuperPoder1 > SuperPoder2);
+    //Inicio do jogo
+    printf("Voce deve escolher um atributo para comparacao.\n");
+    printf("1. População\n");
+    printf("2. Area\n");
+    printf("3. PIB\n");
+    printf("4. PontosTuristicos\n");
+    printf("5. Densidade\n");
+    printf("6. Percapita\n");
+    printf("7. SuperPoder\n");
+    
+    printf("Escolha a comparaçao: ");
+    scanf(" %c" , &tipoComparacao1);
+    
+    switch (tipoComparacao1)
+    {
+    case '1':
+        printf( "Voce escolheu População\n" );
+        resultado1 = Populacao1 > Populacao2 ? 1 : 0;
+        break;
+    case '2':
+        printf( "Voce escolheu Area\n" ); 
+        resultado1 = Area1 > Area2 ? 1 : 0;
+        break;
+    case '3':
+        printf( "Voce escolheu PIB\n" );
+        resultado1 = PIB1 > PIB2 ? 1 : 0;
+        break;
+    case '4':
+        printf( "Voce escolheu PontosTuristicos\n" );
+        resultado1 = PontosTuristicos1 > PontosTuristicos2 ? 1 : 0;
+        break;
+    case '5':
+        printf( "Voce escolheu Densidade\n" );
+        resultado1 = Densidade1 < Densidade2 ? 1 : 0;
+        break;
+    case '6':
+        printf( "Voce escolheu Percapita\n" );
+        resultado1 = Percapita1 > Percapita2 ? 1 : 0;
+        break;
+    case '7':
+        printf( "Voce escolheu SuperPoder\n" );
+        resultado1 = SuperPoder1 > SuperPoder2 ? 1 : 0;
+        break;    
+    default:
+    printf("Opção invalida!\n");
+        break;
+    }
 
+    printf("Voce deve escolher o segundo atributo para comparacao.\n");
+    printf("1. População\n");
+    printf("2. Area\n");
+    printf("3. PIB\n");
+    printf("4. PontosTuristicos\n");
+    printf("5. Densidade\n");
+    printf("6. Percapita\n");
+    printf("7. SuperPoder\n");
+    
+    printf("Escolha a comparaçao: ");
+    scanf(" %c" , &tipoComparacao2);
+    
+    if (tipoComparacao1 == tipoComparacao2)
+    {
+        printf ("Você escolheu o mesmo atributo!");
+    } else {
+    
+        switch (tipoComparacao2)
+        {
+        case '1':
+            printf( "Voce escolheu População\n" );
+            resultado2 = Populacao1 > Populacao2 ? 1 : 0;
+            break;
+        case '2':
+            printf( "Voce escolheu Area\n" ); 
+            resultado2 = Area1 > Area2 ? 1 : 0;
+            break;
+        case '3':
+            printf( "Voce escolheu PIB\n" ); //printf("PIB > PIB: %d\n", PIB1 > PIB2);
+            resultado2 = PIB1 > PIB2 ? 1 : 0;
+            break;
+        case '4':
+            printf( "Voce escolheu PontosTuristicos\n" ); //printf("PontosTuristicos > PontosTuristicos: %d\n", PontosTuristicos1 > PontosTuristicos2);
+            resultado2 = PontosTuristicos1 > PontosTuristicos2 ? 1 : 0;
+            break;
+        case '5':
+            printf( "Voce escolheu Densidade\n" );
+            resultado2 = Densidade1 < Densidade2 ? 1 : 0;
+            break;
+        case '6':
+            printf( "Voce escolheu Percapita\n" );
+            resultado2 = Percapita1 > Percapita2 ? 1 : 0;
+            break;
+        case '7':
+            printf( "Voce escolheu SuperPoder\n" );
+            resultado2 = SuperPoder1 > SuperPoder2 ? 1 : 0;
+            break;    
+        default:
+        printf("Opção invalida!\n");
+            break;
+        }
+}
+    
+        if (resultado1 && resultado2)
+        {
+            printf ("Carta 1 venceu!\n");
 
+        } else if (resultado1 != resultado2){
+        printf("Empatou!\n"); 
+        } else {
+            printf("Carta 2 venceu!\n");
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+       
+       
+      
+   
+    
+   
+    
 
 
 }
